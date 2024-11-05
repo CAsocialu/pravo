@@ -17,10 +17,13 @@ div#header {
         &>span {
             display: flex;
             column-gap: 8px;
-            & img {
-                height: 32px;
-                clip-path: circle(12px);
-                transform: scale(1.25);
+            &>a {
+                height: 31px;
+                &>img {
+                    height: 32px;
+                    clip-path: circle(12px);
+                    transform: scale(1.25);
+                }
             }
         }
     }
