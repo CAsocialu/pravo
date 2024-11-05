@@ -21,6 +21,7 @@ export default function Zdroj() {
             <Helmet>
                 <title>Zdroj · Asociální Právo</title>
                 <meta name="description" content="Asociální Právo je oficiální zpravodajský web České Strany Asociálů. S pečlivou nedbalostí vám přinášíme informace, které nepotřebujete, ale stejně vás pobaví. Pokud se vám zdá, že současný svět má smysl, rádi vám dokážeme opak." />
+                <meta property="og:site_name" content="Česká  Strana Asociálů" />
                 <meta property="og:title" content="Zdroj · Asociální Právo" />
                 <meta property="og:description" content="Asociální Právo je oficiální zpravodajský web České Strany Asociálů. S pečlivou nedbalostí vám přinášíme informace, které nepotřebujete, ale stejně vás pobaví. Pokud se vám zdá, že současný svět má smysl, rádi vám dokážeme opak." />
                 <meta property="og:image" content="/pravo/assets/banner.png" />

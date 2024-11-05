@@ -45,6 +45,7 @@ async function prerender() {
 
             // Set Open Graph meta tags
             const ogTags = {
+                'og:site_name': 'Česká Strana Asociálů',
                 'og:title': title,
                 'og:description': description,
                 'og:image': '/pravo/assets/banner.png',
