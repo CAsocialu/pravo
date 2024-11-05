@@ -1,0 +1,105 @@
+div#Hero {
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+}
+
+div#header.ace~div#content>div#Hero {
+    height: calc(100vh - 100px);
+    margin-top: 50px;
+}
+
+@media screen and (max-width: 907px) {
+    div#Hero {
+        height: auto;
+    }
+}
+
+div#Hero::after {
+    content: "";
+    width: 100%;
+    height: 0;
+    position: relative;
+    bottom: 0px;
+    border-top: solid 5px var(--asexual-purple);
+    border-bottom: solid 5px var(--asocial-green);
+    transition: bottom var(--transition-footer);
+}
+
+div#root:has(div#footer:hover) div#Hero::after {
+    position: relative;
+    bottom: calc(25px - min(25px, var(--scroll-level)));
+}
+
+div#Hero>div.carousel-container {
+    width: unset;
+    height: calc(100% - 10px) !important;
+}
+
+div#Hero>*>*, div#Hero>*>*>div.carousel-content-wrapper>* {
+    height: 100% !important;
+}
+
+div#Hero>*>*>div>*>*>img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+div#Hero div.carousel-content-package {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+a:visited, a:not(:visited):hover::after {
+    color: var(--asexual-purple-light);
+}
+
+a:not(:visited), a:visited:hover::after {
+    color: var(--asocial-green-light);
+}
+
+a::after {
+    content: "open_in_new";
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 12px;
+    position: absolute;
+}
+
+@media screen and (max-width: 907px) {
+    div#mainContent>div#mainACTUALContent {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+    }
+
+    div#mainContent>div#mainACTUALContent>p {
+        margin: 0px;
+    }
+
+    div#mainContent>div#mainACTUALContent>div.image-container[data-alt="Logo ČSA"],
+    div#mainContent>div#mainACTUALContent>div.image-container[data-alt="Logo ČSA"]>img {
+        width: 250px !important;
+        height: 250px;
+    }
+}
+
+@media screen and (min-width: 908px) {
+    div#mainContent>div#mainACTUALContent {
+        display: grid;
+        grid-template-columns: 350px calc(100vw - 350px - 600px - 96px - 96px - 32px) 600px;
+        grid-template-rows: 80px 150px 90px auto;
+        gap: 16px;
+        margin-bottom: 50px;
+    }
+    
+    div#mainACTUALContent>p {
+        margin: 16px;
+    }
+}

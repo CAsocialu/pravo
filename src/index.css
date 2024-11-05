@@ -1,0 +1,40 @@
+@import url(fonts.css);
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+html {
+    overflow-y: scroll;
+    background-color: black;
+}
+
+div#homepageContent {
+	padding: 16px 96px 0;
+	color: var(--ghost);
+	font-size: 22px;
+	font-family: var(--font-mono);
+    text-align: center;
+}
+
+@media only screen and (max-width: 907px) {
+    div#content {
+        position: absolute;
+        left: 0px;
+        right: 0;
+        top: 50px;
+        bottom: 0;
+        overflow: hidden auto;
+        padding: 0px;
+        padding-bottom: 32px;
+    }
+    div#homepageContent {
+        padding: 16px 32px 0;
+    }
+} 
+
+@media only screen and (min-width: 908px) {
+    div#content {
+        padding-bottom: 50px;
+    }
+    div#content>div[id$="Content"]:not(#mainContent) {
+        margin-top: 50px;
+    }
+}

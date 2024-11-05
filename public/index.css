@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+}
+
+html:has(noscript), body:has(noscript), noscript {
+    background-color: #0f0f0f;
+    color: var(--ghost);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+noscript {
+    font-family: "Neue Machina", "JetBrains Mono", monospace;
+    & h1 {
+        font-size: 32px;
+        font-weight: 700;
+    }
+    & h2 {
+        font-size: 16px;
+        font-weight: 300;
+    }
+}
+
+@supports not (-moz-appearance: none) {
+    .JSFixFirefox {
+        display: none;
+    }
+}
+  
+@supports (-moz-appearance: none) {
+    .JSFixChromeWebkitBlink {
+        display: none;
+    }
+}
