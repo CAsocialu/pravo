@@ -2,38 +2,13 @@ const puppeteer = require('puppeteer');
 const fs = require('fs/promises');
 const path = require('path');
 
-const description = "ČSA je recesistická politická strana, v tento moment chystající se vzniknout a poté začít nabírat členy. Více než strana je ČSA internetová mikrokomunita, kde každý člověk náhodně z internetu může přispět svým dílem.";
+const description = "Asociální Právo je oficiální zpravodajský web České Strany Asociálů. S pečlivou nedbalostí vám přinášíme informace, které nepotřebujete, ale stejně vás pobaví. Pokud se vám zdá, že současný svět má smysl, rádi vám dokážeme opak.";
 
 const routes = [
     {
-        path: '/',
-        title: 'Česká Strana Asociálů',
-        canonical: 'https://www.ceskastranaasocialu.cz/'
-    },
-    {
-        path: '/clenove',
-        title: 'Členové · ČSA',
-        canonical: 'https://www.ceskastranaasocialu.cz/clenove'
-    },
-    {
-        path: '/kontakty',
-        title: 'Kontakty · ČSA',
-        canonical: 'https://www.ceskastranaasocialu.cz/kontakty'
-    },
-    {
-        path: '/historie',
-        title: 'Historie · ČSA',
-        canonical: 'https://www.ceskastranaasocialu.cz/historie'
-    },
-    {
-        path: '/pomoc',
-        title: 'Chci pomoci · ČSA',
-        canonical: 'https://www.ceskastranaasocialu.cz/pomoc'
-    },
-    {
-        path: '/source',
-        title: 'Zdroj · ČSA',
-        canonical: 'https://www.ceskastranaasocialu.cz/source'
+        path: '/pravo',
+        title: 'Asociální Právo',
+        canonical: 'https://www.ceskastranaasocialu.cz/pravo'
     }
 ];
 
@@ -42,7 +17,7 @@ async function prerender() {
     const page = await browser.newPage();
 
     for (const route of routes) {
-        const fileName = route.path === '/' ? 'index.html' : `${route.path.slice(1)}/index.html`;
+        const fileName = route.path === '/pravo' ? 'index.html' : `${route.path.slice(1)}/index.html`;
         const filePath = path.join(__dirname, 'build', fileName);
 
         // Create directory if it doesn't exist
@@ -72,7 +47,7 @@ async function prerender() {
             const ogTags = {
                 'og:title': title,
                 'og:description': description,
-                'og:image': '/assets/banner.png',
+                'og:image': '/pravo/assets/banner.png',
                 'og:url': canonical,
                 'og:type': 'website'
             };
@@ -91,7 +66,7 @@ async function prerender() {
             const TwitterTags = {
                 'twitter:title': title,
                 'twitter:description': description,
-                'twitter:image': 'https://ceskastranaasocialu.cz/assets/banner.png',
+                'twitter:image': 'https://ceskastranaasocialu.cz/pravo/assets/banner.png',
                 'twitter:site': '@CASocialu',
                 'twitter:card': 'summary_large_image'
             };
@@ -138,11 +113,11 @@ async function prerender() {
             if (!stylesheetLink) {
                 stylesheetLink = document.createElement('link');
                 stylesheetLink.rel = 'stylesheet';
-                stylesheetLink.href = '/index.css';
+                stylesheetLink.href = '/pravo/index.css';
                 document.head.appendChild(stylesheetLink);
             }
 
-            document.documentElement.setAttribute('data-location', new URL(canonical).pathname.replace(/(?<!^)\/$/, ''));
+            document.documentElement.setAttribute('data-location',  new URL(canonical).pathname.replace(/(?<!^)\/$/, ''));
         }, { ...route, description });
 
         const html = await page.content();
